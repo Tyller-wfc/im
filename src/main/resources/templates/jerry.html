@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>jerry</h1>
+<textarea style="height: 300px;width: 500px;"></textarea>
+<br>
+<input id="content" type="text">
+<input id="send" type="button" value="发送">
+<script src="jquery-3.5.0.js"></script>
+<script>
+    $('#send').on('click', function () {
+        var msg = $('#content').val();
+        $.post(
+            "/send",
+            {
+                msg: msg
+            },
+            function (result) {
+                $('textarea').html(result);
+            });
+    })
+</script>
+</body>
+</html>
